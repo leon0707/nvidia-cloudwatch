@@ -20,9 +20,15 @@ You can enable detailed monitoring on an instance as you launch it or after the 
 
   `aws ec2 run-instances --image-id ami-09092360 --monitoring Enabled=true...`
   
-# Create policy
+# Allow instance to push to CloudWatch
 
 Grant your instance the permission to push metrics to Amazon CloudWatch
+
+create policy
+
+create role
+
+attach role to instance
 
 # Clone the repo to your instance
 `git clone https://github.com/leon0707/nvidia-cloudwatch.git`
