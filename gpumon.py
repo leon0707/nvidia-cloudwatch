@@ -18,9 +18,6 @@ from pynvml import *
 from datetime import datetime
 from time import sleep
 
-### CHOOSE REGION ####
-EC2_REGION = 'us-east-1'
-
 ###CHOOSE NAMESPACE PARMETERS HERE###
 my_NameSpace = 'ChatBotTrain' 
 
