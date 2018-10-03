@@ -1,6 +1,6 @@
 ### Prerequisites:
 
-1. ec2 instance with Amazon Deep Learning AMI.
+1. ec2 instance with a Deep Learning AMI.
 2. Permission to enable detailed monitoring.
 
 Amazon deep learning ami comes with NVIDIA System Management Interface, so you don't need to install it.
