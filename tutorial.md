@@ -27,7 +27,7 @@ grants your instance the permission to push metrics to Amazon CloudWatch
 # Install packages
 `sudo pip install requirements.txt`
 
-# Update variables in 
+# Update variables in gpumon.py
 ```python
 #CHOOSE NAMESPACE PARMETERS HERE###
 my_NameSpace = ‘DeepLearningTrain’
