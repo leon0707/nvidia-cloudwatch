@@ -50,3 +50,10 @@ store_reso = 60
 
 # Run script
 `python gpumon.py`
+
+# Check the result
+
+Go to cloudwatch to check the metrics
+
+
+reference: https://aws.amazon.com/blogs/machine-learning/monitoring-gpu-utilization-with-amazon-cloudwatch/
