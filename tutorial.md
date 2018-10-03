@@ -24,3 +24,15 @@ You can enable detailed monitoring on an instance as you launch it or after the 
 
 grants your instance the permission to push metrics to Amazon CloudWatch
 
+# Install packages
+`sudo pip install requirements.txt`
+
+# Update variables in 
+```python
+#CHOOSE NAMESPACE PARMETERS HERE###
+my_NameSpace = ‘DeepLearningTrain’
+### CHOOSE PUSH INTERVAL ####
+sleep_interval = 600
+### CHOOSE STORAGE RESOLUTION (BETWEEN 1-60) ####
+store_reso = 60
+```
