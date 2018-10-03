@@ -1,2 +1,2 @@
-boto3==1.9.16
-nvidia-ml-py==375.53.1
+boto3
+nvidia-ml-py
