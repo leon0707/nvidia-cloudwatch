@@ -31,10 +31,10 @@ create role
 attach role to instance
 
 # Clone the repo to your instance
-`git clone https://github.com/leon0707/nvidia-cloudwatch.git`
+`sudo git clone https://github.com/leon0707/nvidia-cloudwatch.git`
 
 # Install packages
-`sudo pip install requirements.txt`
+`sudo pip install -r requirements.txt`
 
 # Update variables in gpumon.py
 ```python
