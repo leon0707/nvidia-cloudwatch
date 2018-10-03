@@ -22,17 +22,25 @@ You can enable detailed monitoring on an instance as you launch it or after the 
   
 # Create policy
 
-grants your instance the permission to push metrics to Amazon CloudWatch
+Grant your instance the permission to push metrics to Amazon CloudWatch
+
+# Clone the repo to your instance
+`git clone https://github.com/leon0707/nvidia-cloudwatch.git`
 
 # Install packages
 `sudo pip install requirements.txt`
 
 # Update variables in gpumon.py
 ```python
-#CHOOSE NAMESPACE PARMETERS HERE###
-my_NameSpace = ‘DeepLearningTrain’
+###CHOOSE NAMESPACE PARMETERS HERE###
+my_NameSpace = 'DeepLearningTrain' 
+
 ### CHOOSE PUSH INTERVAL ####
 sleep_interval = 600
+
 ### CHOOSE STORAGE RESOLUTION (BETWEEN 1-60) ####
 store_reso = 60
 ```
+
+# Run script
+`python gpumon.py`
