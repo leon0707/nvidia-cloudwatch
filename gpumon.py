@@ -12,14 +12,16 @@
 #  permissions and limitations under the License.
 
 
-import urllib2
+try:
+    # For Python 3.0 and later
+    from urllib.request import urlopen
+except ImportError:
+    # Fall back to Python 2's urllib2
+    from urllib2 import urlopen
 import boto3
 from pynvml import *
 from datetime import datetime
 from time import sleep
-
-### CHOOSE REGION ####
-EC2_REGION = 'us-east-1'
 
 ###CHOOSE NAMESPACE PARMETERS HERE###
 my_NameSpace = 'ChatBotTrain' 
@@ -32,10 +34,10 @@ store_reso = 60
 
 #Instance information
 BASE_URL = 'http://169.254.169.254/latest/meta-data/'
-INSTANCE_ID = urllib2.urlopen(BASE_URL + 'instance-id').read()
-IMAGE_ID = urllib2.urlopen(BASE_URL + 'ami-id').read()
-INSTANCE_TYPE = urllib2.urlopen(BASE_URL + 'instance-type').read()
-INSTANCE_AZ = urllib2.urlopen(BASE_URL + 'placement/availability-zone').read()
+INSTANCE_ID = urlopen(BASE_URL + 'instance-id').read()
+IMAGE_ID = urlopen(BASE_URL + 'ami-id').read()
+INSTANCE_TYPE = urlopen(BASE_URL + 'instance-type').read()
+INSTANCE_AZ = urlopen(BASE_URL + 'placement/availability-zone').read()
 EC2_REGION = INSTANCE_AZ[:-1]
 
 TIMESTAMP = datetime.now().strftime('%Y-%m-%dT%H')
