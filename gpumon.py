@@ -34,10 +34,10 @@ store_reso = 60
 
 #Instance information
 BASE_URL = 'http://169.254.169.254/latest/meta-data/'
-INSTANCE_ID = urlopen(BASE_URL + 'instance-id').read()
-IMAGE_ID = urlopen(BASE_URL + 'ami-id').read()
-INSTANCE_TYPE = urlopen(BASE_URL + 'instance-type').read()
-INSTANCE_AZ = urlopen(BASE_URL + 'placement/availability-zone').read()
+INSTANCE_ID = urlopen(BASE_URL + 'instance-id').read().decode('ascii')
+IMAGE_ID = urlopen(BASE_URL + 'ami-id').read().decode('ascii')
+INSTANCE_TYPE = urlopen(BASE_URL + 'instance-type').read().decode('ascii')
+INSTANCE_AZ = urlopen(BASE_URL + 'placement/availability-zone').read().decode('ascii')
 EC2_REGION = INSTANCE_AZ[:-1].decode('ascii')
 
 TIMESTAMP = datetime.now().strftime('%Y-%m-%dT%H')
