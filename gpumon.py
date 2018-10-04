@@ -38,7 +38,7 @@ INSTANCE_ID = urlopen(BASE_URL + 'instance-id').read()
 IMAGE_ID = urlopen(BASE_URL + 'ami-id').read()
 INSTANCE_TYPE = urlopen(BASE_URL + 'instance-type').read()
 INSTANCE_AZ = urlopen(BASE_URL + 'placement/availability-zone').read()
-EC2_REGION = INSTANCE_AZ[:-1]
+EC2_REGION = INSTANCE_AZ[:-1].decode('ascii')
 
 TIMESTAMP = datetime.now().strftime('%Y-%m-%dT%H')
 TMP_FILE = '/tmp/GPU_TEMP'
