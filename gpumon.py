@@ -15,9 +15,11 @@
 try:
     # For Python 3.0 and later
     from urllib.request import urlopen
+    PY_VER = 3
 except ImportError:
     # Fall back to Python 2's urllib2
     from urllib2 import urlopen
+    PY_VER = 2
 import boto3
 from pynvml import *
 from datetime import datetime
@@ -34,11 +36,17 @@ store_reso = 60
 
 #Instance information
 BASE_URL = 'http://169.254.169.254/latest/meta-data/'
-INSTANCE_ID = urlopen(BASE_URL + 'instance-id').read().decode('ascii')
-IMAGE_ID = urlopen(BASE_URL + 'ami-id').read().decode('ascii')
-INSTANCE_TYPE = urlopen(BASE_URL + 'instance-type').read().decode('ascii')
-INSTANCE_AZ = urlopen(BASE_URL + 'placement/availability-zone').read().decode('ascii')
-EC2_REGION = INSTANCE_AZ[:-1].decode('ascii')
+if PY_VER == 3:
+    INSTANCE_ID = urlopen(BASE_URL + 'instance-id').read().decode('ascii')
+    IMAGE_ID = urlopen(BASE_URL + 'ami-id').read().decode('ascii')
+    INSTANCE_TYPE = urlopen(BASE_URL + 'instance-type').read().decode('ascii')
+    INSTANCE_AZ = urlopen(BASE_URL + 'placement/availability-zone').read().decode('ascii')
+else:
+    INSTANCE_ID = urlopen(BASE_URL + 'instance-id').read()
+    IMAGE_ID = urlopen(BASE_URL + 'ami-id').read()
+    INSTANCE_TYPE = urlopen(BASE_URL + 'instance-type').read()
+    INSTANCE_AZ = urlopen(BASE_URL + 'placement/availability-zone').read()
+EC2_REGION = INSTANCE_AZ[:-1]
 
 TIMESTAMP = datetime.now().strftime('%Y-%m-%dT%H')
 TMP_FILE = '/tmp/GPU_TEMP'
